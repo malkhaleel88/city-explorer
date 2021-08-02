@@ -12,7 +12,7 @@ and give error with error type if there is error defined.
 
 1- Enter Location in input field in the form.
 2- Press Explore Button.
-3- Then display data And map .
+3- Then display data And map.
 
 ## Architecture
 
@@ -21,55 +21,61 @@ and give error with error type if there is error defined.
 3- React Js.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+01-08-2021 11:30pm - Application now has a fully-functional .
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
 
 ----------------------------------------------------------------------------------------------------
+
 Time Estimate: Lab06
+
 -----------------------------------------------------------------------------------------------------
 
-Name of feature: ________________________________
+Name of feature: 
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete:
 
-Start time: _____
+Start time:
 
-Finish time: _____
+Finish time:
 
-Actual time needed to complete: _____
+Actual time needed to complete:
+
 ------------------------------------------------------
-Name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+Name of feature:
 
-Start time: _____
+Estimate of time needed to complete:
 
-Finish time: _____
+Start time:
 
-Actual time needed to complete: _____
+Finish time:
+
+Actual time needed to complete:
+
 ---------------------------------------------------------
-Name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+Name of feature:
 
-Start time: _____
+Estimate of time needed to complete: 
 
-Finish time: _____
+Start time: 
 
-Actual time needed to complete: _____
+Finish time: 
+
+Actual time needed to complete:
+
 -----------------------------------------------------------
-Name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+Name of feature: 
+Estimate of time needed to complete: 
 
-Start time: _____
+Start time: 
 
-Finish time: _____
+Finish time: 
 
-Actual time needed to complete: _____
+Actual time needed to complete: 
 
 ---------------------------------------------------------------------------------------------------------------------
