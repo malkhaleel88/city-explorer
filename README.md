@@ -4,13 +4,21 @@
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This App Created To Get Input From User For Location Then Display Location Name,Latitude,Longitude and Map
+and give error with error type if there is error defined.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+1- Enter Location in input field in the form.
+2- Press Explore Button.
+3- Then display data And map .
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+1- React-Bootstrap.
+2- LocationIQ API.
+3- React Js.
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -20,6 +28,9 @@
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
+----------------------------------------------------------------------------------------------------
+Time Estimate: Lab06
+-----------------------------------------------------------------------------------------------------
 
 Name of feature: ________________________________
 
@@ -30,3 +41,35 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+------------------------------------------------------
+Name of feature: ________________________________
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+---------------------------------------------------------
+Name of feature: ________________________________
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+-----------------------------------------------------------
+Name of feature: ________________________________
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+---------------------------------------------------------------------------------------------------------------------
