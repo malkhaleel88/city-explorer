@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import WeatherInfo from './component/Weather';
+import MoviesInfo from './component/Movies';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Row, Col } from 'react-bootstrap';
 
 
 export class App extends Component {
@@ -13,42 +15,76 @@ export class App extends Component {
       latitude: '',
       longitude: '',
       weatherData: [],
+      moviesData: [],
       mapShown: false,
-      errorShown: false,
       dataShown: false,
-      errorWarning: '',
     };
   }
 
+
   submission = async (event) => {
+
     event.preventDefault();
-    let Loc = event.target.locationName.value;
 
-    try {
+  await this.setState({
+      loc: event.target.locationName.value
+    })
 
-      let response = await axios.get(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&q=${Loc}&format=json`);
+    await this.locationShown();
+    await this.moviesShown();
+  }
 
-      let locationData = response.data[0];
-      let cityName = locationData.display_name.split(',')[0];
-      let weatherResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/weather?searchQuery=${cityName}&lat=${locationData.lat}&lon=${locationData.lon}`);
+  locationShown = () => {
+
+    axios.get(`https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&q=${this.state.loc}&format=json`).then((response) => {
 
       this.setState({
-        locationDisplay: locationData.display_name,
-        latitude: locationData.lat,
-        longitude: locationData.lon,
-        weatherData: weatherResponse.data,
+        locationDisplay: response.data[0].display_name,
+        latitude: response.data[0].lat,
+        longitude: response.data[0].lon,
         mapShown: true,
-        errorShown: false,
         dataShown: true,
 
-      });
-    }
-    catch (fault) {
-      this.setState({
-        errorShown: true,
-        errorWarning: `${fault.response.status} ${fault.response.data.error}`
       })
-    }
+      this.weatherShown();
+
+    }).catch((err) => {
+
+      console.log(err);
+    })
+
+  }
+
+
+  weatherShown = () => {
+
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/weather?lat=${this.state.latitude}&lon=${this.state.longitude}`).then((weatherResponse) => {
+      
+      this.setState({
+        weatherData: weatherResponse.data,
+      });
+    }).catch((err) => {
+
+      console.log(err);
+    })
+  
+  }
+
+
+  moviesShown = () => {
+
+
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/movies?query=${this.state.loc}`).then((moviesResponse) => {
+
+      this.setState({
+        moviesData: moviesResponse.data,
+      });
+
+    }).catch((err) => {
+
+      console.log(err);
+
+    })
   }
 
 
@@ -80,7 +116,18 @@ export class App extends Component {
           }
         </div>
         <div>
-          <WeatherInfo weatherRender={this.state.weatherData} />
+          <Row>
+            <Col>
+              <div>
+                <WeatherInfo weatherRender={this.state.weatherData} />
+              </div>
+            </Col>
+            <Col>
+              <div>
+                <MoviesInfo moviesRender={this.state.moviesData} />
+              </div>
+            </Col>
+          </Row>
         </div>
         <div>
           {
@@ -88,14 +135,8 @@ export class App extends Component {
             <img src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_IQ_TOKEN}&center=${this.state.latitude},${this.state.longitude}`} alt="Map" />
           }
         </div>
-        <div>
-          <p>
-            {this.state.errorWarning}
-          </p>
-        </div>
       </div>
     )
   }
 }
-
 export default App
